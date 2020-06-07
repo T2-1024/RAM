@@ -1,2 +1,3 @@
-# RAM
-simple , inout , synthesizable ; WIDTH=32 , DEPTH=256
+# modules , by verilog
+1> ram
+2> spi
