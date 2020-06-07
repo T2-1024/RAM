@@ -1,3 +1,3 @@
 # modules , by verilog
-1> ram
-2> spi
+1> ram ;
+2> spi ;
