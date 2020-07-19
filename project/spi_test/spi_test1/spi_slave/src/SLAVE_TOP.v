@@ -90,7 +90,7 @@ always @ (posedge clk_out1 or negedge i_rst_n)
 						case(o_rx_addr[6:0])
 							7'd2:
 								begin
-									reg_2 <= o_rx_data[15:0];//Ğ´¼Ä´æÆ÷Öµ
+									reg_2 <= o_rx_data[15:0];//å†™å¯„å­˜å™¨å€¼
 								end
 							default:;							
 						endcase
@@ -100,11 +100,11 @@ always @ (posedge clk_out1 or negedge i_rst_n)
 						case(o_rx_addr[6:0])
 							7'd0:
 								begin
-									inst_txd_data <= 16'h0ad0;//Ö»¶Á
+									inst_txd_data <= 16'h0ad0;//åªè¯»
 								end
 							7'd1:
 								begin
-									inst_txd_data <= i_tx_data;//¶Á¼Ä´æÆ÷Öµ
+									inst_txd_data <= i_tx_data;//è¯»å¯„å­˜å™¨å€¼
 								end
 								
 							default:;							
