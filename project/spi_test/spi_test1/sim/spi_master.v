@@ -35,11 +35,11 @@ module spi_master
 	output                      spi_mosi,
 	input                       spi_miso,
 	
-	input                       CPOL,		//¼«ĞÔ
-	input                       CPHA,		//ÏàÎ»
+	input                       CPOL,		//ææ€§
+	input                       CPHA,		//ç›¸ä½
 	input	[15:0]				clk_div,	//spi_sclk = clk/((clk_div+2)*2)
-	input						rw_start,   //ÖÁÉÙ´óÓÚÒ»¸öÏµÍ³Ê±ÖÓÖÜÆÚ
-	output						rw_ack,		//½áÊø±êÖ¾
+	input						rw_start,   //è‡³å°‘å¤§äºä¸€ä¸ªç³»ç»Ÿæ—¶é’Ÿå‘¨æœŸ
+	output						rw_ack,		//ç»“æŸæ ‡å¿—
 	output						miso_valid,
    	output		 	            mosi_valid,
 	input	[ADDR_WIDTH-1:0]	addr,
@@ -50,7 +50,7 @@ module spi_master
     localparam                DATA_CNT_EDGE = DATA_WIDTH + DATA_WIDTH;
 	localparam				CNT_EDGE	  = ADDR_CNT_EDGE + DATA_CNT_EDGE;
 	localparam				SHIFT_WIDTH   = ADDR_WIDTH + DATA_WIDTH;
-	//×´Ì¬£¨¸ñÀ×Âë£©
+	//çŠ¶æ€ï¼ˆæ ¼é›·ç ï¼‰
 	localparam				IDLE            = 3'b001;	// 'd1
 	localparam				DCLK_EDGE       = 3'b011;	// 'd3
 	localparam				DCLK_IDLE       = 3'b010;	// 'd2
@@ -68,7 +68,7 @@ module spi_master
 	reg	[5:0]				clk_edge_cnt;
 	reg	       				rw_cmd_reg;
 	
-	//MOSI£¬¿ÕÏĞ×´Ì¬ÖµÎŞĞ§£¨ÇåÁã£©£¬Ğ´×´Ì¬Êä³öÓĞĞ§Êı¾İ
+	//MOSIï¼Œç©ºé—²çŠ¶æ€å€¼æ— æ•ˆï¼ˆæ¸…é›¶ï¼‰ï¼Œå†™çŠ¶æ€è¾“å‡ºæœ‰æ•ˆæ•°æ®
 	assign spi_mosi = (state != IDLE) ? 
 				  ((clk_edge_cnt <= ADDR_CNT_EDGE-1) ? addr_shift[ADDR_WIDTH-1] : ((!rw_cmd_reg) ? txdata_shift[DATA_WIDTH-1]  : 1'b0)) : 1'b0;
 	assign spi_sck = DCLK_reg;
@@ -117,7 +117,7 @@ module spi_master
                                 case(state)
                                     IDLE:begin
                                                 spi_cs <= 1;
-                                    /*    if(rw_start == 1'b1)   //ÖÁÉÙÁ½¸ö¸öÏµÍ³Ê±ÖÓÖÜÆÚ£¬±£Ö¤
+                                    /*    if(rw_start == 1'b1)   //è‡³å°‘ä¸¤ä¸ªä¸ªç³»ç»Ÿæ—¶é’Ÿå‘¨æœŸï¼Œä¿è¯
                                             begin
                                                 next_state <= DCLK_IDLE;
                                                 spi_cs <= 0;
@@ -205,9 +205,9 @@ module spi_master
 				begin
 					addr_shift <= 8'd0;
 					txdata_shift <= 'd0;
-					rw_cmd_reg <= 1'b0;				// Ä¬ÈÏÎªĞ´Ö¸Áî
+					rw_cmd_reg <= 1'b0;				// é»˜è®¤ä¸ºå†™æŒ‡ä»¤
 				end
-			else if(state == IDLE && rw_start)		// Ëø´æ/¼ÓÔØÖ¸Áî¼°Êı¾İ
+			else if(state == IDLE && rw_start)		// é”å­˜/åŠ è½½æŒ‡ä»¤åŠæ•°æ®
 				begin
 					addr_shift <= addr;
 					rw_cmd_reg <= addr[7];
