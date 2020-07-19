@@ -45,7 +45,7 @@ wire    rw_start;
 	assign SPI_MOSI= o_mosi;
 	assign i_miso= SPI_MISO;
 wire pre_start;	
-wire    rw_ack;		//½áÊø±êÖ¾
+wire    rw_ack;		//ç»“æŸæ ‡å¿—
 wire	[15:0]	rxdata;
 wire	[15:0]	txdata = 16'h0023;
 wire	[7:0]	addr ;
@@ -119,11 +119,11 @@ spi_master
         .spi_mosi    (o_mosi),
         .spi_miso    (i_miso),
     
-        .CPOL        (1'b0),        //¼«ĞÔ
-        .CPHA        (1'b0),        //ÏàÎ»
+        .CPOL        (1'b0),        //ææ€§
+        .CPHA        (1'b0),        //ç›¸ä½
         .clk_div    (16'h0002),    //spi_sclk = clk/((clk_div+2)*2)
         .rw_start    (rw_start),
-        .rw_ack        (rw_ack),        //½áÊø±êÖ¾
+        .rw_ack        (rw_ack),        //ç»“æŸæ ‡å¿—
         .miso_valid    (),
         .mosi_valid    (),
         .addr          (addr),
