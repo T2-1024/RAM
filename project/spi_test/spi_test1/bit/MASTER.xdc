@@ -1,23 +1,23 @@
 #FPGA3 - U13  SPI_MASTER
 
-#  ±÷” XC7V3_2CPLD_CLK "AV18"	
+# Êó∂Èíü XC7V3_2CPLD_CLK "AV18"	
 set_property PACKAGE_PIN AV18 [get_ports SYS_CLK0]			
 set_property IOSTANDARD LVCMOS18 [get_ports SYS_CLK0]
 
-## ∏¥Œª XC7V3_RSTN "BC19"
+## Â§ç‰Ωç XC7V3_RSTN "BC19"
 set_property PACKAGE_PIN BC19 [get_ports RESET_N]		
 set_property IOSTANDARD LVCMOS18 [get_ports RESET_N]
 
 
-## SPI ±÷” XC7V2_2XC7V3_IO1_C "U25"
+## SPIÊó∂Èíü XC7V2_2XC7V3_IO1_C "U25"
 set_property PACKAGE_PIN U25 [get_ports SPI_SCK]		
 set_property IOSTANDARD LVCMOS18 [get_ports SPI_SCK]
-## SPI∆¨—° XC7V2_2XC7V3_IO2_C "T25"
+## SPIÁâáÈÄâ XC7V2_2XC7V3_IO2_C "T25"
 set_property PACKAGE_PIN T25 [get_ports SPI_CS]		
 set_property IOSTANDARD LVCMOS18 [get_ports SPI_CS]
-## SPI¥” ‰≥ˆ XC7V2_2XC7V3_IO3_C "AL18"
+## SPI‰ªéËæìÂá∫ XC7V2_2XC7V3_IO3_C "AL18"
 set_property PACKAGE_PIN AL18 [get_ports SPI_MISO]		
 set_property IOSTANDARD LVCMOS18 [get_ports SPI_MISO]
-## SPI¥” ‰»Î XC7V2_2XC7V3_IO4_C "AJ16"
+## SPI‰ªéËæìÂÖ• XC7V2_2XC7V3_IO4_C "AJ16"
 set_property PACKAGE_PIN AJ16 [get_ports SPI_MOSI]		
 set_property IOSTANDARD LVCMOS18 [get_ports SPI_MOSI]
