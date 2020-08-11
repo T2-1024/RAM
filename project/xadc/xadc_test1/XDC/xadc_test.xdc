@@ -1,0 +1,5 @@
+#set_property IOSTANDARD LVTTL [get_ports clk]
+#set_property PACKAGE_PIN C28 [get_ports clk]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets sys_clk] 
+set_property PACKAGE_PIN AV18 [get_ports sys_clk]
+set_property IOSTANDARD LVCMOS18 [get_ports sys_clk]
